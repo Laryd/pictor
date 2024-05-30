@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col gap-7 sm:flex-row items-center justify-center m-6 p-5 py-16  bg-[#E7E3E0]">
+    <div className="flex flex-col gap-7 sm:flex-row items-center justify-center m-6 p-5 py-16  bg-[#E7E3E0] rounded-lg">
       <div className="">
         <main className="text-2xl md:text-3xl font-bold space-y-4">
           <h1 className="inline">
@@ -19,15 +19,13 @@ const Hero = () => {
             <br />
             Effortlessly
           </h2>
-          <p className="text-xl text-muted-foreground mx-auto lg:mx-0 max-w-96">
+          <p className="text-xl text-muted-foreground/80 mx-auto lg:mx-0 max-w-[30rem]">
             Welcome to Pictoria, your go-to app for organizing and managing
             photo albums with ease. Keep your memories at your fingertips,
             easily accessible and beautifully displayed. Start now and
             experience seamless photo management.
           </p>
-          <Button>
-            Get Started
-          </Button>
+          <Button>Get Started</Button>
         </main>
       </div>
       <div className="hidden sm:block">
