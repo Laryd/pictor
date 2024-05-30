@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/Laryd/pictor/compare/v1.3.0...v1.4.0) (2024-05-30)
+
+
+### Features
+
+* **assets:** update favicon icon ([bd42b7e](https://github.com/Laryd/pictor/commit/bd42b7e2d92240460c040cd4f2c119d5deda4898))
+* **homepage:** add hero section ([4b296f7](https://github.com/Laryd/pictor/commit/4b296f7f43441be8d55fbcd5f7465f5dcbc5cd41))
+
 ## [1.3.0](https://github.com/Laryd/pictor/compare/v1.2.0...v1.3.0) (2024-05-30)
 
 
