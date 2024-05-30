@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/Laryd/pictor/compare/v1.4.0...v1.5.0) (2024-05-30)
+
+
+### Features
+
+* **features:** add features section listing what Pictoria does ([77c82c9](https://github.com/Laryd/pictor/commit/77c82c9c2f505dacab30fd1f6d40a19ebbf72dc6))
+
 ## [1.4.0](https://github.com/Laryd/pictor/compare/v1.3.0...v1.4.0) (2024-05-30)
 
 
