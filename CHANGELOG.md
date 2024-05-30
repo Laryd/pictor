@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Laryd/pictor/compare/v1.2.0...v1.3.0) (2024-05-30)
+
+
+### Features
+
+* **assets:** add new logo ([6065e7c](https://github.com/Laryd/pictor/commit/6065e7cce7a0900192d1045efeed8db331340db0))
+* **icons:** install lucide-react icons library ([24ca6e6](https://github.com/Laryd/pictor/commit/24ca6e66e604c78a022ce30e76de1c0881e7484b))
+* **navbar:** implement responsive navbar with shadcn-ui and state management ([d89f391](https://github.com/Laryd/pictor/commit/d89f3919d198b16e12b61f7e56d75d6e2857f35f))
+* **theme:** apply blue theme to global styles ([2eed0de](https://github.com/Laryd/pictor/commit/2eed0de8f9ff8d5db5807e1501a335a17d83ca3a))
+* **ui:** install ShadCN UI components ([4b1e708](https://github.com/Laryd/pictor/commit/4b1e708ee42c94ac8c59202b0fc0609fe1290249))
+
 ## 1.2.0 (2024-05-29)
 
 
