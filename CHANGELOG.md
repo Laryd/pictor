@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/Laryd/pictor/compare/v1.5.0...v1.6.0) (2024-05-31)
+
+
+### Features
+
+* **auth:** add SessionProvider to wrap entire app ([7430eb3](https://github.com/Laryd/pictor/commit/7430eb3fd030d4cd2d1a6865e79f2a2c85a703e6))
+* **auth:** configure next-auth with Google and GitHub providers ([7b73859](https://github.com/Laryd/pictor/commit/7b73859f4cc710d62cd6e6c1c74e84788f9e603a))
+* **auth:** install next-auth for authentication ([40757c8](https://github.com/Laryd/pictor/commit/40757c89f57b5a9117836fec6b0816a74e4083fd))
+
 ## [1.5.0](https://github.com/Laryd/pictor/compare/v1.4.0...v1.5.0) (2024-05-30)
 
 
