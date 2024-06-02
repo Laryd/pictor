@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/Laryd/pictor/compare/v1.6.0...v1.7.0) (2024-06-02)
+
+
+### Features
+
+* **config:** allow images from Google and GitHub ([913648b](https://github.com/Laryd/pictor/commit/913648bbd52a63579f4f37518c79b8392202328d))
+* **navbar:** add useSession for session management ([5cf8c95](https://github.com/Laryd/pictor/commit/5cf8c9559330ee6807bbf851dc7883b7a4cac9ef))
+
+
+### Bug Fixes
+
+* **auth:** authOptions import spelling fix ([dba3366](https://github.com/Laryd/pictor/commit/dba3366399d38481e1b6c89f9d517c6081eddb9c))
+
 ## [1.6.0](https://github.com/Laryd/pictor/compare/v1.5.0...v1.6.0) (2024-05-31)
 
 
