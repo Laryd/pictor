@@ -17,12 +17,15 @@ import { Button, buttonVariants } from "./ui/button";
 import { Menu, MoveRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+
 
 
 
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const {data: session} = useSession()
   return (
     <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
       <NavigationMenu className="mx-auto my-1">
@@ -56,40 +59,59 @@ export const NavBar = () => {
                     </Link>
                   </SheetTitle>
                 </SheetHeader>
-                <nav className="flex flex-col justify-start items-left gap-5 mt-4">
-                  <Link
-                    href="/signin`"
-                    onClick={() => setIsOpen(false)}
-                    className={`buttonVariants({ variant: "ghost" })`}
-                  >
-                    sign in
-                  </Link>
-                  <Button>
-                    <Link href="/signup">Get Started </Link>
+                {session ? (
+                  <nav className="mt-4">
+                    <Button>
+                      <Link href="/signup">Sign Out </Link>
                       <MoveRight />
-                  </Button>
-                </nav>
+                    </Button>
+                  </nav>
+                ) : (
+                  <nav className="flex flex-col justify-start items-left gap-5 mt-4">
+                    <Link
+                      href="/signin`"
+                      onClick={() => setIsOpen(false)}
+                      className={`buttonVariants({ variant: "ghost" })`}
+                    >
+                      sign in
+                    </Link>
+                    <Button>
+                      <Link href="/signup">Get Started </Link>
+                      <MoveRight />
+                    </Button>
+                  </nav>
+                )}
               </SheetContent>
             </Sheet>
           </div>
 
           {/* desktop */}
-          <nav className="hidden md:flex gap-2">
-            <Link
-              href="/signin"
-              className={`text-[17px] text-gray-600 ${buttonVariants({
-                variant: "ghost",
-              })}`}
-            >
-              sign in
-            </Link>
 
-            <Button className="flex gap-2">
-              <Link href="/signup">Get Started </Link>
+          {session ? (
+            <nav className="mt-4">
+              <Button>
+                <Link href="/signup">Sign Out </Link>
+                <MoveRight />
+              </Button>
+            </nav>
+          ) : (
+            <nav className="hidden md:flex gap-2">
+              <Link
+                href="/signin"
+                className={`text-[17px] text-gray-600 ${buttonVariants({
+                  variant: "ghost",
+                })}`}
+              >
+                sign in
+              </Link>
 
-              <MoveRight />
-            </Button>
-          </nav>
+              <Button className="flex gap-2">
+                <Link href="/signup">Get Started </Link>
+
+                <MoveRight />
+              </Button>
+            </nav>
+          )}
         </NavigationMenuList>
       </NavigationMenu>
     </header>
