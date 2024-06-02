@@ -1,5 +1,5 @@
 "use client";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -18,10 +18,7 @@ import { Menu, MoveRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface RouteProps {
-  href: string;
-  label: string;
-}
+
 
 
 export const NavBar = () => {
