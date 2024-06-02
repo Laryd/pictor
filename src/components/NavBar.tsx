@@ -26,18 +26,6 @@ interface RouteProps {
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const modifiedLabel = id.replace("#", "");
-    const element = document.getElementById(modifiedLabel);
-    if (element) {
-      window.scrollTo({
-        behavior: "smooth",
-        top: element.offsetTop,
-      });
-    }
-    setIsOpen(false);
-  };
   return (
     <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
       <NavigationMenu className="mx-auto my-1">
