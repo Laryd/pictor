@@ -1,13 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit"
-import userReducer from "./slices/userSlice"
-import albumReducer from "./slices/albumSlice"
-import photoReducer from "./slices/photoSlice"
+import usersReducer from "./slices/userSlice"
+import albumsReducer from "./slices/albumSlice"
+import photosReducer from "./slices/photoSlice"
 
 export const store = configureStore({
     reducer:{
-      users: userReducer,
-      albums: albumReducer,
-      photos: photoReducer
+      users: usersReducer,
+      albums: albumsReducer,
+      photos: photosReducer
     }
 })
 
