@@ -1,9 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit"
 import userReducer from "./slices/userSlice"
+import albumReducer from "./slices/albumSlice"
 
 export const store = configureStore({
     reducer:{
-      users: userReducer
+      users: userReducer,
+      albums: albumReducer
     }
 })
 
