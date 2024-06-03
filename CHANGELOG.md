@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/Laryd/pictor/compare/v1.8.0...v1.9.0) (2024-06-03)
+
+
+### Features
+
+* **auth:** simplify signin/signup to use only GitHub and Google ([7d66583](https://github.com/Laryd/pictor/commit/7d6658373f5a1c48db0410ee031409447ee876f5))
+
+
+### Bug Fixes
+
+* **auth:** correct variable name from _ID to _SECRET in authOptions ([b580bb5](https://github.com/Laryd/pictor/commit/b580bb505fec2209f58263de06b9c1d815dfe989))
+
 ## [1.8.0](https://github.com/Laryd/pictor/compare/v1.7.1...v1.8.0) (2024-06-02)
 
 
