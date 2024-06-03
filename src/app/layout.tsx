@@ -1,11 +1,11 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "../lib/utils";
 import { NavBar } from "@/components/NavBar";
 import SessionWrapper from "@/components/SessionWrapper";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+import { StoreProvider } from "@/redux/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <SessionWrapper>
-      <Provider store={store}>
+      <StoreProvider>
         <html lang="en">
           <body
             className={cn(
@@ -33,7 +33,7 @@ export default function RootLayout({
             {children}
           </body>
         </html>
-      </Provider>
+      </StoreProvider>
     </SessionWrapper>
   );
 }
