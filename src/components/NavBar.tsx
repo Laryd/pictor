@@ -17,7 +17,7 @@ import { Button, buttonVariants } from "./ui/button";
 import { Menu, MoveRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 
 
@@ -89,8 +89,8 @@ export const NavBar = () => {
 
           {session ? (
             <nav className="mt-4">
-              <Button>
-                <Link href="/signup">Sign Out </Link>
+              <Button onClick={() => signOut()}>
+                Sign Out 
                 <MoveRight />
               </Button>
             </nav>
