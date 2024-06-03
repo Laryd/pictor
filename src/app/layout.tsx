@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "../lib/utils";
 import { NavBar } from "@/components/NavBar";
 import SessionWrapper from "@/components/SessionWrapper";
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +21,19 @@ export default function RootLayout({
 }>) {
   return (
     <SessionWrapper>
-      <html lang="en">
-        <body
-          className={cn(
-            "min-h-screen font-sans antialiased grainy",
-            inter.className
-          )}
-        >
-          <NavBar />
-          {children}
-        </body>
-      </html>
+      <Provider store={store}>
+        <html lang="en">
+          <body
+            className={cn(
+              "min-h-screen font-sans antialiased grainy",
+              inter.className
+            )}
+          >
+            <NavBar />
+            {children}
+          </body>
+        </html>
+      </Provider>
     </SessionWrapper>
   );
 }
