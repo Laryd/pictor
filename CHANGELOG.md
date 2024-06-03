@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/Laryd/pictor/compare/v1.9.0...v1.10.0) (2024-06-03)
+
+
+### Features
+
+* **state:** add photoReducer to store ([db55db4](https://github.com/Laryd/pictor/commit/db55db4e036e9c58d8525fd436b3bda67dba1950))
+* **state:** implement albumReducer for fetching albums ([9668e5e](https://github.com/Laryd/pictor/commit/9668e5e8bacbbcbfbe45fb8ac68d27b7441d1e44))
+* **state:** implement photoSlice for managing photos ([35c00f6](https://github.com/Laryd/pictor/commit/35c00f60ae47557d48be83ab5f74485e0c6c0a19))
+* **state:** implement userReducer for fetching users ([8ec6e24](https://github.com/Laryd/pictor/commit/8ec6e24dda3c4289ac7f6543d029a3e5cb480baf))
+* **state:** integrate Redux with TypeScript for state management ([2b959c3](https://github.com/Laryd/pictor/commit/2b959c337ad903f65d3d0917344d463be920bfc5))
+
 ## [1.9.0](https://github.com/Laryd/pictor/compare/v1.8.0...v1.9.0) (2024-06-03)
 
 
