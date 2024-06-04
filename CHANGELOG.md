@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/Laryd/pictor/compare/v1.12.0...v1.13.0) (2024-06-04)
+
+
+### Features
+
+* add image remote pattern for via.placeholder.com ([edd84d4](https://github.com/Laryd/pictor/commit/edd84d4c3049cb0d3f13248fbf20c457f84f9fa0))
+* **ui:** add user album photos view ([623f86d](https://github.com/Laryd/pictor/commit/623f86d70a56b1c04f20a6e21dc212587f295fe8))
+
 ## [1.12.0](https://github.com/Laryd/pictor/compare/v1.11.0...v1.12.0) (2024-06-04)
 
 
