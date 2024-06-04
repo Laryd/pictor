@@ -17,7 +17,8 @@ import { Button, buttonVariants } from "./ui/button";
 import { Menu, MoveRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import Skeleton from "react-loading-skeleton";
 
 
 
@@ -60,20 +61,50 @@ export const NavBar = () => {
                   </SheetTitle>
                 </SheetHeader>
                 {session ? (
-                  <nav className="mt-4">
-                    <Button>
-                      <Link href="/signup">Sign Out </Link>
+                  <nav className="flex flex-col items-start gap-8">
+                    <Button variant="ghost">
+                      Welcome,{" "}
+                      {session.user?.name?.split(" ")[0] || (
+                        <Skeleton width={50} />
+                      )}{" "}
+                    </Button>
+                    <Link
+                      href="/"
+                      className={`${buttonVariants({
+                        variant: "outline",
+                      })}`}
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      href="/home"
+                      className={`${buttonVariants({
+                        variant: "outline",
+                      })}`}
+                    >
+                      Dashboard
+                    </Link>
+                    <Button onClick={() => signOut()}>
+                      Sign out
                       <MoveRight />
                     </Button>
                   </nav>
                 ) : (
                   <nav className="flex flex-col justify-start items-left gap-5 mt-4">
                     <Link
-                      href="/signin`"
-                      onClick={() => setIsOpen(false)}
-                      className={`buttonVariants({ variant: "ghost" })`}
+                      href="/"
+                      className={`${buttonVariants({
+                        variant: "outline",
+                      })}`}
                     >
-                      sign in
+                      Home
+                    </Link>
+                    <Link
+                      href="/signin"
+                      onClick={() => setIsOpen(false)}
+                      className={`${buttonVariants({ variant: "outline" })}`}
+                    >
+                      Sign in
                     </Link>
                     <Button>
                       <Link href="/signup">Get Started </Link>
@@ -88,21 +119,49 @@ export const NavBar = () => {
           {/* desktop */}
 
           {session ? (
-            <nav className="mt-4">
+            <nav className="hidden md:flex gap-2">
+              <Button variant="ghost">
+                Welcome,{" "}
+                {session.user?.name?.split(" ")[0] || <Skeleton width={50} />}{" "}
+              </Button>
+              <Link
+                href="/"
+                className={`${buttonVariants({
+                  variant: "outline",
+                })}`}
+              >
+                Home
+              </Link>
+              <Link
+                href="/home"
+                className={`${buttonVariants({
+                  variant: "outline",
+                })}`}
+              >
+                Dashboard
+              </Link>
               <Button onClick={() => signOut()}>
-                Sign Out 
+                Sign out
                 <MoveRight />
               </Button>
             </nav>
           ) : (
             <nav className="hidden md:flex gap-2">
               <Link
-                href="/signin"
-                className={`text-[17px] text-gray-600 ${buttonVariants({
-                  variant: "ghost",
+                href="/"
+                className={`${buttonVariants({
+                  variant: "outline",
                 })}`}
               >
-                sign in
+                Home
+              </Link>
+              <Link
+                href="/signin"
+                className={`text-[17px] text-gray-600 ${buttonVariants({
+                  variant: "outline",
+                })}`}
+              >
+                Sign in
               </Link>
 
               <Button className="flex gap-2">

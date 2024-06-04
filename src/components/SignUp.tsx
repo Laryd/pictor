@@ -1,10 +1,16 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { redirect } from "next/navigation";
 
 export function SignUpForm() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  useEffect(() => {
+    if (status === "authenticated") {
+      redirect("/home");
+    }
+  }, [session, status]);
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black mt-12">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200 pb-10">
