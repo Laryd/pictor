@@ -21,25 +21,6 @@ interface DashboardProps {
   image: string;
 }
 
-const albums: DashboardProps[] = [
-  {
-    title: "Responsive Design",
-    description: `has Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.`,
-    image: "/hero.svg",
-  },
-  {
-    title: "Intuitive user interface",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: "/hero.svg",
-  },
-  {
-    title: "AI-Powered insights",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: "/hero.svg",
-  },
-];
 
 const featureList: string[] = [
   "Album",
@@ -73,7 +54,7 @@ export const Dashboard = () => {
       return predefinedUserImagesUrl[index];
     };
   return (
-    <section id="albums" className="container py-24 sm:py-32 space-y-8">
+    <section id="users" className="container py-24 sm:py-32 space-y-8">
       <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
         Discover{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
