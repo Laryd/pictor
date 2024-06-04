@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/Laryd/pictor/compare/v1.11.0...v1.12.0) (2024-06-04)
+
+
+### Features
+
+* **auth:** add PrivateRoute Wrapper to protect private routes ([f020e04](https://github.com/Laryd/pictor/commit/f020e04e5b5848994850249b4f3425c29c0318c8))
+* **auth:** secure private routes to require login ([1906b11](https://github.com/Laryd/pictor/commit/1906b11abba7a446d3f5617b50abf2bbc0a79af8))
+
 ## [1.11.0](https://github.com/Laryd/pictor/compare/v1.10.1...v1.11.0) (2024-06-04)
 
 
