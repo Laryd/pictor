@@ -14,9 +14,6 @@ const PrivateRoute = ({children}:{children: ReactNode}) => {
       }
     }, [ session, status])
     
-    if (status === "loading" || !session){
-        return <Loader2/>
-    }
   return (
     <>{children}</>
   )
