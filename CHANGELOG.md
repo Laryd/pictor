@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/Laryd/pictor/compare/v1.10.1...v1.11.0) (2024-06-04)
+
+
+### Features
+
+* **assets:** add album images ([02183b8](https://github.com/Laryd/pictor/commit/02183b894b95c9b1ad084b17365bb8d321c5e58e))
+* **types:** add user data interfaces/types based on API response ([a57c159](https://github.com/Laryd/pictor/commit/a57c15986ab223859f6c3fa57c0a81ed0a1a3849))
+* **ui:** add UserProfile with user details and albums from Redux state and implement dynamic routing ([0f6cfe3](https://github.com/Laryd/pictor/commit/0f6cfe347bdc51379585df891d6d7281fdbbf97e))
+* **ui:** create user homepage/dashboard ([872e7ce](https://github.com/Laryd/pictor/commit/872e7cefdb12e249445f488653a8ff6f3183eb12))
+* **ui:** install and add react-loading-skeleton library to handle loading state ([fb71521](https://github.com/Laryd/pictor/commit/fb7152191404ee0e5e08bbbfc9c2e9f2045b1f72))
+
 ### [1.10.1](https://github.com/Laryd/pictor/compare/v1.10.0...v1.10.1) (2024-06-03)
 
 
