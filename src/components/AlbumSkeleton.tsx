@@ -5,11 +5,11 @@ const AlbumSkeleton = ({ cards, width }: { cards: number, width?:number }) => {
     .fill(0)
     .map((item) => (
       <div>
-        <div className="top-row">
+        <div>
           <Skeleton width={width ? width : 150} style={{marginBottom: "1.7rem"
           }} />
         </div>
-        <div className="bottom-row rounded-lg">
+        <div>
           <Skeleton height={300} />
         </div>
       </div>
