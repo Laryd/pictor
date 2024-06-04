@@ -40,7 +40,7 @@ export const UserProfile = () => {
   const userAlbums = albums.filter((album) => album.userId === Number(userId));
   return (
     <PrivateRoute>
-      <div>
+      <div className="container">
         <div className="flex flex-col items-center gap-6">
           <h2 className="text-3xl md:text-4xl font-bold">
             <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
