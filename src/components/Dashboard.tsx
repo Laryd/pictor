@@ -83,7 +83,10 @@ export const Dashboard = () => {
             <DashboardSkeleton cards={10} />
           ) : (
             users.map((user) => (
-              <Card key={user.id}>
+              <Card
+                key={user.id}
+                className="hover:cursor-pointer shadow hover:shadow-lg"
+              >
                 <CardHeader>
                   <CardTitle>{user.name || <Skeleton />}</CardTitle>
                 </CardHeader>
