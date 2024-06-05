@@ -66,8 +66,6 @@ export function SignInForm() {
           <BottomGradient />
         </button>
       </div>
-
-      <div className="flex flex-col space-y-4"></div>
     </div>
   );
 }
