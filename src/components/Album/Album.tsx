@@ -63,11 +63,8 @@ const Album = () => {
             <AlbumSkeleton cards={20} width={200} />
           ) : (
             albumPhotos.map((photo) => (
-              <Link href={`${album?.id}/photo/${photo.id}`}>
-                <Card
-                  key={photo.id}
-                  className="hover:cursor-pointer shadow hover:shadow-lg"
-                >
+              <Link key={photo.id} href={`${album?.id}/photo/${photo.id}`}>
+                <Card className="hover:cursor-pointer shadow hover:shadow-lg">
                   <CardHeader>
                     <CardTitle className="font-bold hover:text-blue-600 hover:underline">
                       {photo.title.charAt(0).toUpperCase() +
