@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/Laryd/pictor/compare/v1.15.0...v1.16.0) (2024-06-05)
+
+
+### Features
+
+* optimize images using Next.js Image component ([dc15611](https://github.com/Laryd/pictor/commit/dc15611b4be1b7e022d198168785a465e3f84a3a))
+
 ## [1.15.0](https://github.com/Laryd/pictor/compare/v1.14.2...v1.15.0) (2024-06-05)
 
 
