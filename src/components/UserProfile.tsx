@@ -38,6 +38,7 @@ export const UserProfile = () => {
   const user = users.find((user) => user.id === Number(userId));
 
   const userAlbums = albums.filter((album) => album.userId === Number(userId));
+  console.log(userAlbums)
   return (
     <PrivateRoute>
       <div className="container">
@@ -166,26 +167,28 @@ export const UserProfile = () => {
               <AlbumSkeleton cards={10} />
             ) : (
               userAlbums.map((album) => (
-                <Card
-                  key={album.id}
-                  className="hover:cursor-pointer shadow hover:shadow-lg"
-                >
-                  <CardHeader>
-                    <CardTitle className="font-bold hover:text-blue-600 hover:underline">
-                      <Link href={`user/${user?.id}/${album.id}`}>
-                        {album.title.charAt(0).toUpperCase() +
-                          album.title.slice(1)}
-                      </Link>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardFooter>
-                    <img
-                      src={`/user${album.id}.svg`}
-                      alt="album picture"
-                      className="mx-auto rounded-xl"
-                    />
-                  </CardFooter>
-                </Card>
+                <Link href={`${user?.id}/album/${album.id}`}>
+                  <Card
+                    key={album.id}
+                    className="hover:cursor-pointer shadow hover:shadow-lg"
+                  >
+                    <CardHeader>
+                      <CardTitle className="font-bold hover:text-blue-600 hover:underline">
+                        <Link href={`${user?.id}/album/${album.id}`}>
+                          {album.title.charAt(0).toUpperCase() +
+                            album.title.slice(1)}
+                        </Link>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardFooter>
+                      <img
+                        src={`/albumplaceholder.svg`}
+                        alt="album picture"
+                        className="mx-auto rounded-xl"
+                      />
+                    </CardFooter>
+                  </Card>
+                </Link>
               ))
             )}
           </div>
