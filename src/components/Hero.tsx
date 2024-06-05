@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col gap-7 sm:flex-row items-center justify-center m-6 p-5 py-16  bg-[#E7E3E0] rounded-lg">
+    <div className="flex flex-col gap-7 sm:flex-row items-center justify-center m-6 p-5 py-16  bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg">
       <div className="">
         <main className="text-2xl md:text-3xl font-bold space-y-4">
           <h1 className="inline">
