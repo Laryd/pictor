@@ -8,6 +8,7 @@ import SessionWrapper from "@/components/SessionWrapper";
 import { StoreProvider } from "@/redux/StoreProvider";
 import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
             >
               <NavBar />
               {children}
+              <Toaster />
             </body>
           </html>
         </StoreProvider>
