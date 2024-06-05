@@ -1,7 +1,7 @@
 "use client";
-import { fetchAlbums } from "@/redux/slices/albumSlice";
-import { fetchPhotos } from "@/redux/slices/photoSlice";
-import { fetchUsers } from "@/redux/slices/userSlice";
+import { fetchAlbumById, fetchAlbums } from "@/redux/slices/albumSlice";
+import { fetchPhotos, updatePhotoTitle } from "@/redux/slices/photoSlice";
+import { fetchUserById, fetchUsers } from "@/redux/slices/userSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,28 +11,26 @@ import { Card, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import AlbumSkeleton from "./AlbumSkeleton";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
-import Hero from "./Hero";
 
 const Album = () => {
   const params = useParams();
   const albumId = params.albumId;
+  const userId = params.userId
   const dispatch = useDispatch<AppDispatch>();
-  const users = useSelector((state: RootState) => state.users.users);
-  const albums = useSelector((state: RootState) => state.albums.albums);
-  const [isImageLoaded, setIsImageLoaded] = useState<Record<number, boolean>>(
-    {}
-  );
+  const user = useSelector((state: RootState) => state.users.singleUser);
+  const album = useSelector((state: RootState) => state.albums.singleAlbum);
   const photos = useSelector((state: RootState) => state.photos.photos);
   const photoStatus = useSelector((state: RootState) => state.photos.status);
-
+  const [isImageLoaded, setIsImageLoaded] = useState<Record<number, boolean>>(
+    {}
+  ); 
   useEffect(() => {
     dispatch(fetchPhotos());
-    dispatch(fetchAlbums());
-    dispatch(fetchUsers());
+    dispatch(fetchAlbumById(Number(albumId)));
+    dispatch(fetchUserById(Number(userId)));
+   
   }, [dispatch]);
 
-  const album = albums.find((album) => album.id === Number(albumId));
-  const user = users.find((user) => user.id === album?.userId);
 
   const albumPhotos = photos.filter(
     (photo) => photo.albumId === Number(albumId)
@@ -74,10 +72,8 @@ const Album = () => {
                 >
                   <CardHeader>
                     <CardTitle className="font-bold hover:text-blue-600 hover:underline">
-                      <Link href={`/album/${album?.id}`}>
-                        {photo.title.charAt(0).toUpperCase() +
-                          photo.title.slice(1)}
-                      </Link>
+                      {photo.title.charAt(0).toUpperCase() +
+                        photo.title.slice(1)}
                     </CardTitle>
                   </CardHeader>
                   <CardFooter>

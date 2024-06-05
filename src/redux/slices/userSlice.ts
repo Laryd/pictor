@@ -1,4 +1,3 @@
-// src/redux/slices/userSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -21,6 +20,7 @@ interface Company {
   catchPhrase: string;
   bs: string;
 }
+
 interface User {
   id: number;
   name: string;
@@ -33,13 +33,15 @@ interface User {
 }
 
 interface UserState {
-  users: User[];
+users: User[];
+  singleUser: User | null;
   status: "idle" | "loading" | "succeeded" | "failed";
 }
 
 // Define initial state
 const initialState: UserState = {
   users: [],
+  singleUser: null,
   status: "idle",
 };
 
@@ -50,6 +52,17 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   );
   return response.data;
 });
+
+// Create async thunk for fetching a single user by id
+export const fetchUserById = createAsyncThunk(
+  "users/fetchUserById",
+  async (userId: number) => {
+    const response = await axios.get<User>(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+    return response.data;
+  }
+);
 
 // Create user slice with reducers
 const userSlice = createSlice({
@@ -66,6 +79,19 @@ const userSlice = createSlice({
         state.status = "succeeded";
       })
       .addCase(fetchUsers.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(fetchUserById.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(
+        fetchUserById.fulfilled,
+        (state, action: PayloadAction<User>) => {
+          state.singleUser = action.payload;
+          state.status = "succeeded";
+        }
+      )
+      .addCase(fetchUserById.rejected, (state) => {
         state.status = "failed";
       });
   },

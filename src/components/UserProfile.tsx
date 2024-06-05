@@ -12,7 +12,7 @@ import { AppDispatch, RootState } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { fetchUsers } from "@/redux/slices/userSlice";
+import { fetchUserById } from "@/redux/slices/userSlice";
 import { fetchAlbums } from "@/redux/slices/albumSlice";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -25,20 +25,17 @@ export const UserProfile = () => {
   const params = useParams();
   const userId = params.userId;
   const dispatch = useDispatch<AppDispatch>();
-  const users = useSelector((state: RootState) => state.users.users);
+  const user = useSelector((state: RootState) => state.users.singleUser);
   const albums = useSelector((state: RootState) => state.albums.albums);
   const albumStatus = useSelector((state: RootState) => state.albums.status);
   const [showProfile, setShowProfile] = useState<Boolean>(true);
 
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(fetchUserById(Number(userId)));
     dispatch(fetchAlbums());
   }, [dispatch]);
 
-  const user = users.find((user) => user.id === Number(userId));
-
   const userAlbums = albums.filter((album) => album.userId === Number(userId));
-  console.log(userAlbums)
   return (
     <PrivateRoute>
       <div className="container">
@@ -49,7 +46,7 @@ export const UserProfile = () => {
             </span>
             Profile
           </h2>
-          {user !== undefined ? (
+          {user !== null ? (
             <Card className="bg-muted/50 relative mt-12 flex flex-col justify-center items-center max-w-96">
               <CardHeader className="mt-8 flex justify-center items-center pb-2">
                 <img

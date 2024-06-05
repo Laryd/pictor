@@ -1,4 +1,3 @@
-// src/redux/slices/albumSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -10,11 +9,13 @@ interface Album {
 
 interface AlbumState {
   albums: Album[];
+  singleAlbum: Album | null;
   status: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: AlbumState = {
   albums: [],
+  singleAlbum: null,
   status: "idle",
 };
 
@@ -24,6 +25,16 @@ export const fetchAlbums = createAsyncThunk("albums/fetchAlbums", async () => {
   );
   return response.data;
 });
+
+export const fetchAlbumById = createAsyncThunk(
+  "albums/fetchAlbumById",
+  async (albumId: number) => {
+    const response = await axios.get<Album>(
+      `https://jsonplaceholder.typicode.com/albums/${albumId}`
+    );
+    return response.data;
+  }
+);
 
 const albumSlice = createSlice({
   name: "albums",
@@ -42,6 +53,19 @@ const albumSlice = createSlice({
         }
       )
       .addCase(fetchAlbums.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(fetchAlbumById.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(
+        fetchAlbumById.fulfilled,
+        (state, action: PayloadAction<Album>) => {
+          state.singleAlbum = action.payload;
+          state.status = "succeeded";
+        }
+      )
+      .addCase(fetchAlbumById.rejected, (state) => {
         state.status = "failed";
       });
   },
