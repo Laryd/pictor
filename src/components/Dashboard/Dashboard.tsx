@@ -18,11 +18,6 @@ import Skeleton from "react-loading-skeleton";
 import DashboardSkeleton from "../DashBoardSkeleton";
 import Link from "next/link";
 
-interface DashboardProps {
-  title: string;
-  description: string;
-  image: string;
-}
 
 const featureList: string[] = [
   "Album",
