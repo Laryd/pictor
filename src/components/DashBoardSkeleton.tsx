@@ -4,8 +4,8 @@ import Skeleton from "react-loading-skeleton"
 const DashboardSkeleton = ({cards}: {cards: number}) => {
   return Array(cards)
     .fill(0)
-    .map((item) => (
-      <div>
+    .map((item, i) => (
+      <div key={i}>
         <div>
           <Skeleton width={100} />
           <br />
