@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/Laryd/pictor/compare/v1.14.2...v1.15.0) (2024-06-05)
+
+
+### Features
+
+* add metadata and SEO optimization ([967d8f1](https://github.com/Laryd/pictor/commit/967d8f12114a10e7250c2bc7ac706827e9cde7be))
+
+
+### Bug Fixes
+
+* downgrade to 14.1 ([1a22d6d](https://github.com/Laryd/pictor/commit/1a22d6d305fb2e1b1de0e3bcb4f963a154b8b8b8))
+* environment updates ([e946c2b](https://github.com/Laryd/pictor/commit/e946c2b3b4b53d218d7b38957d10468d20aebe35))
+* linting error fix ([6876a03](https://github.com/Laryd/pictor/commit/6876a033739f3e6afe24f270d60271b4353446fc))
+* linting error fixes ([b8ba523](https://github.com/Laryd/pictor/commit/b8ba52374a28ebe2a433e6878a2d698979258ab0))
+* tailwind css styles ([17854ac](https://github.com/Laryd/pictor/commit/17854ac2f48b03e5a4bc95429685ee466b57dae2))
+* upgrate to 14.2 ([85c0c6a](https://github.com/Laryd/pictor/commit/85c0c6aaf88deb9eeefa9d4a070eb458b20ca32f))
+
 ### [1.14.2](https://github.com/Laryd/pictor/compare/v1.14.1...v1.14.2) (2024-06-05)
 
 ### [1.14.1](https://github.com/Laryd/pictor/compare/v1.14.0...v1.14.1) (2024-06-05)
