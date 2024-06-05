@@ -27,7 +27,7 @@ const Album = () => {
     dispatch(fetchPhotos());
     dispatch(fetchAlbumById(Number(albumId)));
     dispatch(fetchUserById(Number(userId)));
-  }, [dispatch]);
+  }, [dispatch, albumId,userId]);
 
   const albumPhotos = photos.filter(
     (photo) => photo.albumId === Number(albumId)
