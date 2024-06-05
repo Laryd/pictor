@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/Laryd/pictor/compare/v1.13.0...v1.14.0) (2024-06-05)
+
+
+### Features
+
+* **album:** add image loading state and error handling ([2177c53](https://github.com/Laryd/pictor/commit/2177c538f7cfcccd220c025df0d77dd0e5a6a02e))
+* **dashboard:** add links to navigate to album page ([6593fef](https://github.com/Laryd/pictor/commit/6593fef185519b298b38070932390a7f3dc8e9bc))
+* **ui:** add private and public routes to navbar for logged-in and logged-out users ([c1a8ab2](https://github.com/Laryd/pictor/commit/c1a8ab2571a05c082734da76ac8eff184d27c58a))
+* **ui:** add single photo page and photo title editing functionality ([efb6dc6](https://github.com/Laryd/pictor/commit/efb6dc687868e5ae2ad99f9ed50b42609e65b721))
+* **ui:** add toast notifications for user notifications ([cf9f29f](https://github.com/Laryd/pictor/commit/cf9f29f5fa38f087ce912a559a203a125f94f01d))
+* **userprofile:** add links to navigate to photos page ([50997d2](https://github.com/Laryd/pictor/commit/50997d2ccf4c9f41095dd4d5d441ec52c4f2aad4))
+
+
+### Bug Fixes
+
+* correct get functionality for single user and album ([51e5573](https://github.com/Laryd/pictor/commit/51e557353d0f3658aae7620dca5c7173586e4a78))
+* place keys appropriately in map functions ([50b4c72](https://github.com/Laryd/pictor/commit/50b4c726f65d09b25235e4100ecfec4f63ff77ec))
+
 ## [1.13.0](https://github.com/Laryd/pictor/compare/v1.12.0...v1.13.0) (2024-06-04)
 
 
