@@ -82,9 +82,8 @@ export const Dashboard = () => {
             <DashboardSkeleton cards={10} />
           ) : (
             users.map((user) => (
-              <Link href={`/user/${user.id}`}>
+              <Link key={user.id} href={`/user/${user.id}`}>
                 <Card
-                  key={user.id}
                   className="hover:cursor-pointer shadow hover:shadow-lg"
                 >
                   <CardHeader>
