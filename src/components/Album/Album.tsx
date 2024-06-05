@@ -10,6 +10,7 @@ import { Card, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import AlbumSkeleton from "../AlbumSkeleton";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 const Album = () => {
   const params = useParams();
@@ -73,7 +74,7 @@ const Album = () => {
                 </CardHeader>
                 <CardFooter>
                   {!isImageLoaded[photo.id] && <Skeleton height={200} />}
-                  <img
+                  <Image
                     src={photo.url || "/photoplaceholder.svg"}
                     alt={photo.title}
                     onLoad={() => handleImageLoad(photo.id)}
@@ -81,6 +82,8 @@ const Album = () => {
                     className={`mx-auto rounded-xl ${
                       !isImageLoaded[photo.id] ? "hidden" : ""
                     }`}
+                    width={500}
+                    height={500}
                   />
                 </CardFooter>
               </Card>

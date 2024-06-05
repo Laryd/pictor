@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import AlbumSkeleton from "../AlbumSkeleton";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
+import Image from "next/image";
 
 export const UserProfile = () => {
   const params = useParams();
@@ -170,10 +171,12 @@ export const UserProfile = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardFooter>
-                    <img
+                    <Image
                       src={`/albumplaceholder.svg`}
                       alt="album picture"
                       className="mx-auto rounded-xl"
+                      width={500}
+                      height={500}
                     />
                   </CardFooter>
                 </Card>

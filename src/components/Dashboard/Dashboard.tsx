@@ -17,6 +17,7 @@ import { Loader2 } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import DashboardSkeleton from "../DashBoardSkeleton";
 import Link from "next/link";
+import Image from "next/image";
 
 
 const featureList: string[] = [
@@ -95,10 +96,12 @@ export const Dashboard = () => {
                     {albumStatus === "loading" ? (
                       <Loader2 />
                     ) : (
-                      <img
+                      <Image
                         src={albumPicture(user.id)}
                         alt="About album"
                         className="mx-auto rounded-xl"
+                        width={500}
+                        height={500}
                       />
                     )}
                   </CardFooter>
