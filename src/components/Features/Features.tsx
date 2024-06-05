@@ -11,7 +11,6 @@ interface FeatureProps {
   icon: JSX.Element;
   name: string;
 }
-
 const features: FeatureProps[] = [
   {
     icon: <CircleCheckBig size={34} />,
