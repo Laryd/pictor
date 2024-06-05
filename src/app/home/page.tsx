@@ -1,10 +1,12 @@
 import { Dashboard } from '@/components/Dashboard'
-import React from 'react'
+import PrivateRoute from '@/components/PrivateRoute'
 
 const Home = () => {
   return (
-    <Dashboard/>
-  )
+    <PrivateRoute>
+      <Dashboard />
+    </PrivateRoute>
+  );
 }
 
 export default Home

@@ -1,12 +1,11 @@
 "use client";
-import { fetchAlbumById, fetchAlbums } from "@/redux/slices/albumSlice";
-import { fetchPhotos, updatePhotoTitle } from "@/redux/slices/photoSlice";
-import { fetchUserById, fetchUsers } from "@/redux/slices/userSlice";
+import { fetchAlbumById } from "@/redux/slices/albumSlice";
+import { fetchPhotos } from "@/redux/slices/photoSlice";
+import { fetchUserById } from "@/redux/slices/userSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import PrivateRoute from "./PrivateRoute";
 import { Card, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import AlbumSkeleton from "./AlbumSkeleton";
 import Link from "next/link";
@@ -47,7 +46,7 @@ const Album = () => {
   };
 
   return (
-    <PrivateRoute>
+    
       <div className="container">
         <div className="flex flex-col items-center gap-6">
           <h2 className="text-3xl md:text-4xl font-bold">
@@ -94,7 +93,6 @@ const Album = () => {
           </div>
         </div>
       </div>
-    </PrivateRoute>
   );
 };
 

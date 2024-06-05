@@ -1,21 +1,15 @@
 "use client";
-import { fetchAlbumById, fetchAlbums } from "@/redux/slices/albumSlice";
-import { useMediaQuery } from "usehooks-ts";
 import {
   fetchPhotoById,
-  fetchPhotos,
   updatePhotoTitle,
 } from "@/redux/slices/photoSlice";
-import { fetchUserById, fetchUsers } from "@/redux/slices/userSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import PrivateRoute from "./PrivateRoute";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "./ui/card";
@@ -69,9 +63,9 @@ const UserPhoto = () => {
  }, [updateStatus]);
 
   return (
-    <PrivateRoute>
+   
       <div className="flex justify-center mt-20">
-        <Card className="">
+        <Card>
           <CardHeader>
             <CardTitle className="text-center">
               {editing && photo ? (
@@ -121,7 +115,7 @@ const UserPhoto = () => {
           </CardContent>
         </Card>
       </div>
-    </PrivateRoute>
+    
   );
 };
 

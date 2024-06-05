@@ -1,5 +1,4 @@
 "use client"
-import { Loader2 } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import {ReactNode, useEffect} from 'react'

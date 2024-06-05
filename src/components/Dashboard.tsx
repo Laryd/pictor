@@ -16,7 +16,6 @@ import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import DashboardSkeleton from "./DashBoardSkeleton";
-import PrivateRoute from "./PrivateRoute";
 import Link from "next/link";
 
 interface DashboardProps {
@@ -58,7 +57,6 @@ export const Dashboard = () => {
     return predefinedUserImagesUrl[index];
   };
   return (
-    <PrivateRoute>
       <main id="users" className="container py-24 sm:py-32 space-y-8">
         <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
           Discover{" "}
@@ -115,6 +113,6 @@ export const Dashboard = () => {
           )}
         </div>
       </main>
-    </PrivateRoute>
+    
   );
 };

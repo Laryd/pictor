@@ -1,10 +1,13 @@
 
 import Album from '@/components/Album'
+import PrivateRoute from '@/components/PrivateRoute'
 
 const AlbumPage = () => {
   return (
-    <Album/>
-  )
+    <PrivateRoute>
+      <Album />
+    </PrivateRoute>
+  );
 }
 
 export default AlbumPage

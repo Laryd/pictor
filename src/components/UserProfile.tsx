@@ -19,7 +19,6 @@ import { cn } from "@/lib/utils";
 import AlbumSkeleton from "./AlbumSkeleton";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
-import PrivateRoute from "./PrivateRoute";
 
 export const UserProfile = () => {
   const params = useParams();
@@ -37,7 +36,7 @@ export const UserProfile = () => {
 
   const userAlbums = albums.filter((album) => album.userId === Number(userId));
   return (
-    <PrivateRoute>
+    
       <div className="container">
         <div className="flex flex-col items-center gap-6">
           <h2 className="text-3xl md:text-4xl font-bold">
@@ -191,6 +190,5 @@ export const UserProfile = () => {
           </div>
         </div>
       </div>
-    </PrivateRoute>
   );
 };
