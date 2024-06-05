@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.16.3](https://github.com/Laryd/pictor/compare/v1.16.2...v1.16.3) (2024-06-05)
+
+
+### Bug Fixes
+
+* **album:** missing key prop add ([ceef205](https://github.com/Laryd/pictor/commit/ceef2057f93dbf80d341ba35469fc2391eefdc6b))
+
 ### [1.16.2](https://github.com/Laryd/pictor/compare/v1.16.1...v1.16.2) (2024-06-05)
 
 
