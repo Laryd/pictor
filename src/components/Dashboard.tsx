@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useDispatch } from "react-redux";
 import { Badge } from "./ui/badge";
 import {
@@ -17,13 +17,13 @@ import { Loader2 } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import DashboardSkeleton from "./DashBoardSkeleton";
 import PrivateRoute from "./PrivateRoute";
+import Link from "next/link";
 
 interface DashboardProps {
   title: string;
   description: string;
   image: string;
 }
-
 
 const featureList: string[] = [
   "Album",
@@ -38,26 +38,25 @@ const predefinedUserImagesUrl: string[] = Array.from(
   (_, i) => `/user${i + 1}.svg`
 );
 
-
 export const Dashboard = () => {
-    const dispatch = useDispatch<AppDispatch>();
-    const users = useSelector((state: RootState) => state.users.users);
-    const albums = useSelector((state: RootState) => state.albums.albums);
-    const userStatus = useSelector((state: RootState) => state.users.status);
-    const albumStatus = useSelector((state: RootState) => state.albums.status)
+  const dispatch = useDispatch<AppDispatch>();
+  const users = useSelector((state: RootState) => state.users.users);
+  const albums = useSelector((state: RootState) => state.albums.albums);
+  const userStatus = useSelector((state: RootState) => state.users.status);
+  const albumStatus = useSelector((state: RootState) => state.albums.status);
 
-    useEffect(() => {
-      dispatch(fetchUsers());
-      dispatch(fetchAlbums());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchUsers());
+    dispatch(fetchAlbums());
+  }, [dispatch]);
 
-    const userAlbumCount = (userId: number) => {
-      return albums.filter((album) => album.userId === userId).length;
-    };
-    const albumPicture = (userId: number): string => {
-      const index = userId - 1;
-      return predefinedUserImagesUrl[index];
-    };
+  const userAlbumCount = (userId: number) => {
+    return albums.filter((album) => album.userId === userId).length;
+  };
+  const albumPicture = (userId: number): string => {
+    const index = userId - 1;
+    return predefinedUserImagesUrl[index];
+  };
   return (
     <PrivateRoute>
       <main id="users" className="container py-24 sm:py-32 space-y-8">
@@ -83,32 +82,36 @@ export const Dashboard = () => {
             <DashboardSkeleton cards={10} />
           ) : (
             users.map((user) => (
-              <Card
-                key={user.id}
-                className="hover:cursor-pointer shadow hover:shadow-lg"
-              >
-                <CardHeader>
-                  <CardTitle>{user.name || <Skeleton />}</CardTitle>
-                </CardHeader>
+              <Link href={`/user/${user.id}`}>
+                <Card
+                  key={user.id}
+                  className="hover:cursor-pointer shadow hover:shadow-lg"
+                >
+                  <CardHeader>
+                    <Link href={`/user/${user.id}`}>
+                      <CardTitle>{user.name || <Skeleton />}</CardTitle>
+                    </Link>
+                  </CardHeader>
 
-                <CardContent>
-                  <p>
-                    {user.company.name}: {user.company.catchPhrase}
-                  </p>
-                  <p>Albums: {userAlbumCount(user.id)}</p>
-                </CardContent>
-                <CardFooter>
-                  {albumStatus === "loading" ? (
-                    <Loader2 />
-                  ) : (
-                    <img
-                      src={albumPicture(user.id)}
-                      alt="About album"
-                      className="mx-auto rounded-xl"
-                    />
-                  )}
-                </CardFooter>
-              </Card>
+                  <CardContent>
+                    <p>
+                      {user.company.name}: {user.company.catchPhrase}
+                    </p>
+                    <p>Albums: {userAlbumCount(user.id)}</p>
+                  </CardContent>
+                  <CardFooter>
+                    {albumStatus === "loading" ? (
+                      <Loader2 />
+                    ) : (
+                      <img
+                        src={albumPicture(user.id)}
+                        alt="About album"
+                        className="mx-auto rounded-xl"
+                      />
+                    )}
+                  </CardFooter>
+                </Card>
+              </Link>
             ))
           )}
         </div>
