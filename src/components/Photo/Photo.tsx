@@ -12,13 +12,13 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../ui/card";
 import Skeleton from "react-loading-skeleton";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import Image from "next/image";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 import { Loader2 } from "lucide-react";
-import { useToast } from "./ui/use-toast";
+import { useToast } from "../ui/use-toast";
 
 const UserPhoto = () => {
   const params = useParams();

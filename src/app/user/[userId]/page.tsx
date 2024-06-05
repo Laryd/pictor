@@ -1,5 +1,5 @@
 import PrivateRoute from "@/components/PrivateRoute";
-import { UserProfile } from "@/components/UserProfile";
+import { UserProfile } from "@/components/UserProfile/UserProfile";
 
 const User = () => {
   return (

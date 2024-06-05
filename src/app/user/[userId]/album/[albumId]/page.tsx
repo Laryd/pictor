@@ -1,6 +1,5 @@
-
-import Album from '@/components/Album'
-import PrivateRoute from '@/components/PrivateRoute'
+import Album from "@/components/Album/Album";
+import PrivateRoute from "@/components/PrivateRoute";
 
 const AlbumPage = () => {
   return (
@@ -8,6 +7,6 @@ const AlbumPage = () => {
       <Album />
     </PrivateRoute>
   );
-}
+};
 
-export default AlbumPage
+export default AlbumPage;

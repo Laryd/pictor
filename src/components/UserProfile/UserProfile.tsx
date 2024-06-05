@@ -7,16 +7,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../ui/card";
 import { AppDispatch, RootState } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchUserById } from "@/redux/slices/userSlice";
 import { fetchAlbums } from "@/redux/slices/albumSlice";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import AlbumSkeleton from "./AlbumSkeleton";
+import AlbumSkeleton from "../AlbumSkeleton";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
 

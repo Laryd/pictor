@@ -1,4 +1,5 @@
-import UserPhoto from "@/components/Photo"
+
+import UserPhoto from "@/components/Photo/Photo";
 import PrivateRoute from "@/components/PrivateRoute"
 
 

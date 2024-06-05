@@ -1,6 +1,6 @@
 "use client";
 import { useDispatch } from "react-redux";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 import {
   Card,
   CardContent,
@@ -15,7 +15,7 @@ import { fetchAlbums } from "@/redux/slices/albumSlice";
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
-import DashboardSkeleton from "./DashBoardSkeleton";
+import DashboardSkeleton from "../DashBoardSkeleton";
 import Link from "next/link";
 
 interface DashboardProps {

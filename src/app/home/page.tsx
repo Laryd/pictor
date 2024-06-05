@@ -1,4 +1,4 @@
-import { Dashboard } from '@/components/Dashboard'
+import { Dashboard } from '@/components/Dashboard/Dashboard'
 import PrivateRoute from '@/components/PrivateRoute'
 
 const Home = () => {
