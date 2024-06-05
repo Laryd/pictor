@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.16.2](https://github.com/Laryd/pictor/compare/v1.16.1...v1.16.2) (2024-06-05)
+
+
+### Bug Fixes
+
+* Image to img for functionality and image load ([31244ea](https://github.com/Laryd/pictor/commit/31244eae45cd19b9106e98c7db0bdcdadbcd22e1))
+
 ### [1.16.1](https://github.com/Laryd/pictor/compare/v1.16.0...v1.16.1) (2024-06-05)
 
 ## [1.16.0](https://github.com/Laryd/pictor/compare/v1.15.0...v1.16.0) (2024-06-05)
