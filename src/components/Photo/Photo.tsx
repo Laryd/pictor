@@ -35,7 +35,7 @@ const UserPhoto = () => {
 
   useEffect(() => {
     dispatch(fetchPhotoById(Number(photoId)));
-  }, [dispatch]);
+  }, [dispatch, photoId]);
   const handleEditing = (id: number, title: string) => {
     if (photo && title === photo.title) return;
     if (id && title !== undefined) {
@@ -60,7 +60,7 @@ const UserPhoto = () => {
        description: "There was a problem with your request.",
      });
    }
- }, [updateStatus]);
+ }, [updateStatus, toast]);
 
   return (
    

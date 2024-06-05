@@ -32,7 +32,7 @@ export const UserProfile = () => {
   useEffect(() => {
     dispatch(fetchUserById(Number(userId)));
     dispatch(fetchAlbums());
-  }, [dispatch]);
+  }, [dispatch, userId]);
 
   const userAlbums = albums.filter((album) => album.userId === Number(userId));
   return (
