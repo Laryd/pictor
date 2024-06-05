@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 
 const Hero = () => {
@@ -25,7 +26,9 @@ const Hero = () => {
             easily accessible and beautifully displayed. Start now and
             experience seamless photo management.
           </p>
-          <Button>Get Started</Button>
+          <Link href={`/signin`}>
+            <Button>Get Started</Button>
+          </Link>
         </main>
       </div>
       <div className="hidden sm:block">
