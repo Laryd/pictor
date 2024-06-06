@@ -82,7 +82,7 @@ export const Dashboard = () => {
                 >
                   <CardHeader>
                     <Link href={`/user/${user.id}`}>
-                      <CardTitle>{user.name || <Skeleton />}</CardTitle>
+                      <CardTitle className="hover:text-blue-500 hover:underline">{user.name || <Skeleton />}</CardTitle>
                     </Link>
                   </CardHeader>
 
