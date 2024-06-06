@@ -10,6 +10,7 @@ import { Card, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import AlbumSkeleton from "../AlbumSkeleton";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 const Album = () => {
   const params = useParams();
@@ -27,7 +28,7 @@ const Album = () => {
     dispatch(fetchPhotos());
     dispatch(fetchAlbumById(Number(albumId)));
     dispatch(fetchUserById(Number(userId)));
-  }, [dispatch]);
+  }, [dispatch, albumId,userId]);
 
   const albumPhotos = photos.filter(
     (photo) => photo.albumId === Number(albumId)
@@ -62,28 +63,28 @@ const Album = () => {
             <AlbumSkeleton cards={20} width={200} />
           ) : (
             albumPhotos.map((photo) => (
-              <Card
-                key={photo.id}
-                className="hover:cursor-pointer shadow hover:shadow-lg"
-              >
-                <CardHeader>
-                  <CardTitle className="font-bold hover:text-blue-600 hover:underline">
-                    {photo.title.charAt(0).toUpperCase() + photo.title.slice(1)}
-                  </CardTitle>
-                </CardHeader>
-                <CardFooter>
-                  {!isImageLoaded[photo.id] && <Skeleton height={200} />}
-                  <img
-                    src={photo.url || "/photoplaceholder.svg"}
-                    alt={photo.title}
-                    onLoad={() => handleImageLoad(photo.id)}
-                    onError={handleImageError}
-                    className={`mx-auto rounded-xl ${
-                      !isImageLoaded[photo.id] ? "hidden" : ""
-                    }`}
-                  />
-                </CardFooter>
-              </Card>
+              <Link key={photo.id} href={`${album?.id}/photo/${photo.id}`}>
+                <Card className="hover:cursor-pointer shadow hover:shadow-lg">
+                  <CardHeader>
+                    <CardTitle className="font-bold hover:text-blue-600 hover:underline">
+                      {photo.title.charAt(0).toUpperCase() +
+                        photo.title.slice(1)}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardFooter>
+                    {!isImageLoaded[photo.id] && <Skeleton height={200} />}
+                    <img
+                      src={photo.url || "/photoplaceholder.svg"}
+                      alt={photo.title}
+                      onLoad={() => handleImageLoad(photo.id)}
+                      onError={handleImageError}
+                      className={`mx-auto rounded-xl ${
+                        !isImageLoaded[photo.id] ? "hidden" : ""
+                      }`}
+                    />
+                  </CardFooter>
+                </Card>
+              </Link>
             ))
           )}
         </div>
@@ -91,5 +92,6 @@ const Album = () => {
     </div>
   );
 };
+
 
 export default Album;

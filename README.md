@@ -1,10 +1,10 @@
-**Project Documentation**
+# Project Documentation
 
-**Overview**
+## Overview
 
 This documentation provides a comprehensive insight into the project structure, employed technologies, and architectural components. The application leverages TypeScript as its primary programming language, employing Next.js for server-side rendering, Shadcn for UI components, and Tailwind CSS for styling. Authentication functionalities are facilitated by NextAuth.js, integrating authentication via Google and GitHub. Additionally, the project utilizes a provider wrapping the layout component for enhanced modularity and scalability.
 
-**Technologies Used**
+## Technologies Used
 
 - **TypeScript**: The primary programming language utilized for its static typing and enhanced developer productivity.
 - **Next.js**: A React framework employed for server-side rendering, routing, and building robust web applications.
@@ -13,38 +13,36 @@ This documentation provides a comprehensive insight into the project structure, 
 - **NextAuth.js**: A versatile authentication library streamlining authentication processes, supporting authentication via Google and GitHub.
 - **Provider Pattern**: Utilized to encapsulate the layout component, enhancing modularity and scalability.
 
-**Folder Structure**
+## Folder Structure
 
-```
-.
+src
 ├───app
-│   ├───api
-│   │   └───auth
-│   │       └───[...nextauth]
-│   ├───home
-│   ├───signin
-│   ├───signup
-│   └───user
-│       └───[userId]
-│           └───album
-│               └───[albumId]
-│                   └───photo
-│                       └───[photoId]
+│ ├───api
+│ │ └───auth
+│ │ └───[...nextauth]
+│ ├───home
+│ ├───signin
+│ ├───signup
+│ └───user
+│ └───[userId]
+│ └───album
+│ └───[albumId]
+│ └───photo
+│ └───[photoId]
 ├───components
-│   ├───Album
-│   ├───Dashboard
-│   ├───Features
-│   │   └───__tests__
-│   ├───Hero
-│   │   └───__tests__
-│   ├───Photo
-│   ├───ui
-│   └───UserProfile
+│ ├───Album
+│ ├───Dashboard
+│ ├───Features
+│ │ └───tests
+│ ├───Hero
+│ │ └───tests
+│ ├───Photo
+│ ├───ui
+│ └───UserProfile
 ├───lib
 └───redux
-    ├───slices
-    └───store.ts
-```
+├───slices
+└───store.ts
 
 - **app**: The central directory housing primary application components and pages.
   - **api**: Contains API routes and authentication logic.
@@ -73,6 +71,46 @@ This documentation provides a comprehensive insight into the project structure, 
   - **slices**: Redux slice files facilitating organized state management.
   - **__tests__**: Test files ensuring the reliability and functionality of Redux store and StoreProvider using Jest.
 
-**Conclusion**
+## App Usage
+
+### Log In
+- Users can log in using either Google or GitHub.
+- Authentication is managed by NextAuth.js, ensuring secure and streamlined access.
+
+### Dashboard
+- Once logged in, users are directed to the dashboard.
+- The dashboard displays a list of users.
+
+### User Profile
+- Clicking on a user navigates to their profile page.
+- The profile page displays user details and a list of their albums.
+
+### Albums
+- Users can click on an album to view the photos within it.
+- Each album page showcases all the photos associated with that album.
+
+### Photos
+- Clicking on a photo navigates to a detailed view of the photo.
+- Users can edit the title of the photo directly from this page.
+
+## API Requests
+
+- **GET Requests**: Fetch user data, albums, and photos.
+- **PATCH Requests**: Update photo titles.
+
+## State Management
+
+- **Redux**: Used for handling global state and asynchronous actions.
+  - **Slices**: State slices for users, albums, and photos.
+  - **Store**: Centralized store for managing application state.
+  - **Actions**: Fetch and update actions for interacting with the API.
+
+## Testing
+
+- **Jest**: Configured for unit testing.
+- **Testing Library**: Used for testing React components.
+- **Scripts**: Added to `package.json` for running tests.
+
+## Conclusion
 
 This documentation provides an extensive overview of the project's structure, technologies employed, and architectural components. By harnessing TypeScript for enhanced type safety and developer productivity, integrating Next.js for server-side rendering, and incorporating Shadcn for UI components, the application ensures robustness and scalability. Authentication functionalities, facilitated by NextAuth.js with support for Google and GitHub authentication, further enhance the user experience. Additionally, the utilization of a provider pattern encapsulating the layout component promotes modularity and facilitates code maintenance.
