@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { RootState } from "../store";
 
 export interface Photo {
   albumId: number;
@@ -14,7 +15,7 @@ interface PhotoState {
   singlePhoto: Photo | null;
   status: "idle" | "loading" | "succeeded" | "failed";
   singlePhotoStatus: "idle" | "loading" | "succeeded" | "failed";
-  updateStatus: "idle" | "loading" | "succeeded" | "failed"; 
+  updateStatus: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: PhotoState = {
@@ -22,7 +23,7 @@ const initialState: PhotoState = {
   singlePhoto: null,
   status: "idle",
   singlePhotoStatus: "idle",
-  updateStatus: "idle", 
+  updateStatus: "idle",
 };
 
 export const fetchPhotos = createAsyncThunk("photos/fetchPhotos", async () => {
@@ -101,13 +102,21 @@ const photoSlice = createSlice({
           if (state.singlePhoto?.id === action.payload.id) {
             state.singlePhoto = action.payload;
           }
-          state.updateStatus = "succeeded"; // Update this line
+          state.updateStatus = "succeeded";
         }
       )
       .addCase(updatePhotoTitle.rejected, (state) => {
-        state.updateStatus = "failed"; // Add this line
+        state.updateStatus = "failed";
       });
   },
 });
+
+export const selectPhotosStatus = (state: RootState) => state.photos.status;
+export const selectSinglePhotoStatus = (state: RootState) =>
+  state.photos.singlePhotoStatus;
+export const selectUpdateTitleStatus = (state: RootState) =>
+  state.photos.updateStatus;
+export const selectPhotos = (state: RootState) => state.photos.photos;
+export const selectSinglePhoto = (state: RootState) => state.photos.singlePhoto;
 
 export default photoSlice.reducer;
