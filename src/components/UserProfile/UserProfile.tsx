@@ -8,8 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { AppDispatch, RootState } from "@/redux/store";
-import { useDispatch } from "react-redux";
+import { RootState } from "@/redux/store";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchUserById } from "@/redux/slices/userSlice";
@@ -20,11 +19,12 @@ import AlbumSkeleton from "../AlbumSkeleton";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
 import Image from "next/image";
+import { useAppDispatch } from "@/redux/hooks";
 
 export const UserProfile = () => {
   const params = useParams();
   const userId = params.userId;
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const user = useSelector((state: RootState) => state.users.singleUser);
   const albums = useSelector((state: RootState) => state.albums.albums);
   const albumStatus = useSelector((state: RootState) => state.albums.status);

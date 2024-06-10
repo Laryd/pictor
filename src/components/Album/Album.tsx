@@ -2,21 +2,22 @@
 import { fetchAlbumById } from "@/redux/slices/albumSlice";
 import { fetchPhotos } from "@/redux/slices/photoSlice";
 import { fetchUserById } from "@/redux/slices/userSlice";
-import { AppDispatch, RootState } from "@/redux/store";
+import { RootState } from "@/redux/store";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Card, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import AlbumSkeleton from "../AlbumSkeleton";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import Image from "next/image";
+import { useAppDispatch } from "@/redux/hooks";
 
 const Album = () => {
   const params = useParams();
   const albumId = params.albumId;
   const userId = params.userId;
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const user = useSelector((state: RootState) => state.users.singleUser);
   const album = useSelector((state: RootState) => state.albums.singleAlbum);
   const photos = useSelector((state: RootState) => state.photos.photos);
@@ -28,7 +29,7 @@ const Album = () => {
     dispatch(fetchPhotos());
     dispatch(fetchAlbumById(Number(albumId)));
     dispatch(fetchUserById(Number(userId)));
-  }, [dispatch, albumId,userId]);
+  }, [dispatch, albumId, userId]);
 
   const albumPhotos = photos.filter(
     (photo) => photo.albumId === Number(albumId)
@@ -92,6 +93,5 @@ const Album = () => {
     </div>
   );
 };
-
 
 export default Album;
