@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { RootState } from "../store";
 
 // Define interfaces for user data and state
 interface Geo {
@@ -33,9 +34,10 @@ interface User {
 }
 
 interface UserState {
-users: User[];
+  users: User[];
   singleUser: User | null;
   status: "idle" | "loading" | "succeeded" | "failed";
+  singleUserStatus: "idle" | "loading" | "succeeded" | "failed";
 }
 
 // Define initial state
@@ -43,6 +45,7 @@ const initialState: UserState = {
   users: [],
   singleUser: null,
   status: "idle",
+  singleUserStatus: "idle",
 };
 
 // Create async thunk for fetching users
@@ -82,19 +85,25 @@ const userSlice = createSlice({
         state.status = "failed";
       })
       .addCase(fetchUserById.pending, (state) => {
-        state.status = "loading";
+        state.singleUserStatus = "loading";
       })
       .addCase(
         fetchUserById.fulfilled,
         (state, action: PayloadAction<User>) => {
           state.singleUser = action.payload;
-          state.status = "succeeded";
+          state.singleUserStatus = "succeeded";
         }
       )
       .addCase(fetchUserById.rejected, (state) => {
-        state.status = "failed";
+        state.singleUserStatus = "failed";
       });
   },
 });
+
+export const selectUsers = (state: RootState) => state.users.users;
+export const selectUser = (state: RootState) => state.users.singleUser;
+export const selectUsersStatus = (state: RootState) => state.users.status;
+export const selectSingleUserStatus = (state: RootState) =>
+  state.users.singleUserStatus;
 
 export default userSlice.reducer;
