@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { RootState } from "../store";
 
 interface Album {
   userId: number;
@@ -11,12 +12,14 @@ interface AlbumState {
   albums: Album[];
   singleAlbum: Album | null;
   status: "idle" | "loading" | "succeeded" | "failed";
+  singleAlbumStatus: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: AlbumState = {
   albums: [],
   singleAlbum: null,
   status: "idle",
+  singleAlbumStatus: "idle"
 };
 
 export const fetchAlbums = createAsyncThunk("albums/fetchAlbums", async () => {
@@ -70,5 +73,12 @@ const albumSlice = createSlice({
       });
   },
 });
+
+export const selectAlbums = (state: RootState) => state.albums.albums;
+export const selectSingleAlbum = (state: RootState) => state.albums.singleAlbum;
+export const selectAlbumsStatus = (state: RootState) => state.albums.status;
+export const selectSingleAlbumStatus = (state: RootState) => state.albums.singleAlbumStatus;
+
+
 
 export default albumSlice.reducer;
