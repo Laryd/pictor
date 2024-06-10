@@ -101,7 +101,7 @@ const userSlice = createSlice({
 });
 
 export const selectUsers = (state: RootState) => state.users.users;
-export const selectUser = (state: RootState) => state.users.singleUser;
+export const selectSingleUser = (state: RootState) => state.users.singleUser;
 export const selectUsersStatus = (state: RootState) => state.users.status;
 export const selectSingleUserStatus = (state: RootState) =>
   state.users.singleUserStatus;
