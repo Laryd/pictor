@@ -7,17 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { RootState } from "@/redux/store";
-import { useSelector } from "react-redux";
-import { fetchUsers } from "@/redux/slices/userSlice";
-import { fetchAlbums } from "@/redux/slices/albumSlice";
+import { fetchUsers, selectUsers, selectUsersStatus } from "@/redux/slices/userSlice";
+import { fetchAlbums, selectAlbums, selectAlbumsStatus } from "@/redux/slices/albumSlice";
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import DashboardSkeleton from "../DashBoardSkeleton";
 import Link from "next/link";
 import Image from "next/image";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 const featureList: string[] = [
   "Album",
@@ -34,10 +32,10 @@ const predefinedUserImagesUrl: string[] = Array.from(
 
 export const Dashboard = () => {
   const dispatch = useAppDispatch();
-  const users = useSelector((state: RootState) => state.users.users);
-  const albums = useSelector((state: RootState) => state.albums.albums);
-  const userStatus = useSelector((state: RootState) => state.users.status);
-  const albumStatus = useSelector((state: RootState) => state.albums.status);
+  const users = useAppSelector(selectUsers);
+  const albums = useAppSelector(selectAlbums);
+  const userStatus = useAppSelector(selectUsersStatus);
+  const albumsStatus = useAppSelector(selectAlbumsStatus);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -92,7 +90,7 @@ export const Dashboard = () => {
                   <p>Albums: {userAlbumCount(user.id)}</p>
                 </CardContent>
                 <CardFooter>
-                  {albumStatus === "loading" ? (
+                  {albumsStatus === "loading" ? (
                     <Loader2 />
                   ) : (
                     <Image

@@ -1,27 +1,25 @@
 "use client";
-import { fetchAlbumById } from "@/redux/slices/albumSlice";
-import { fetchPhotos } from "@/redux/slices/photoSlice";
-import { fetchUserById } from "@/redux/slices/userSlice";
-import { RootState } from "@/redux/store";
+import { fetchAlbumById, selectSingleAlbum } from "@/redux/slices/albumSlice";
+import { fetchPhotos, selectPhotos, selectPhotosStatus } from "@/redux/slices/photoSlice";
+import { fetchUserById, selectSingleUser } from "@/redux/slices/userSlice";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { Card, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import AlbumSkeleton from "../AlbumSkeleton";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import Image from "next/image";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 const Album = () => {
   const params = useParams();
   const albumId = params.albumId;
   const userId = params.userId;
   const dispatch = useAppDispatch();
-  const user = useSelector((state: RootState) => state.users.singleUser);
-  const album = useSelector((state: RootState) => state.albums.singleAlbum);
-  const photos = useSelector((state: RootState) => state.photos.photos);
-  const photoStatus = useSelector((state: RootState) => state.photos.status);
+  const user = useAppSelector(selectSingleUser);
+  const album = useAppSelector(selectSingleAlbum);
+  const photos = useAppSelector(selectPhotos);
+  const photoStatus = useAppSelector(selectPhotosStatus);
   const [isImageLoaded, setIsImageLoaded] = useState<Record<number, boolean>>(
     {}
   );

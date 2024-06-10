@@ -1,9 +1,7 @@
 "use client";
-import { fetchPhotoById, updatePhotoTitle } from "@/redux/slices/photoSlice";
-import { RootState } from "@/redux/store";
+import { fetchPhotoById, selectSinglePhoto, selectSinglePhotoStatus, selectUpdateTitleStatus, updatePhotoTitle } from "@/redux/slices/photoSlice";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useSelector} from "react-redux";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import Skeleton from "react-loading-skeleton";
 import { Button } from "../ui/button";
@@ -11,22 +9,18 @@ import Image from "next/image";
 import { Input } from "../ui/input";
 import { Loader2 } from "lucide-react";
 import { useToast } from "../ui/use-toast";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 const UserPhoto = () => {
   const params = useParams();
   const photoId = params.photoId;
   const dispatch = useAppDispatch();
   const { toast } = useToast();
-  const photo = useSelector((state: RootState) => state.photos.singlePhoto);
-  const photoStatus = useSelector(
-    (state: RootState) => state.photos.singlePhotoStatus
-  );
-  const updateStatus = useSelector(
-    (state: RootState) => state.photos.updateStatus
-  );
-  const [editing, setEditing] = useState(false);
-  const [title, setTitle] = useState("");
+  const photo = useAppSelector(selectSinglePhoto)
+  const photoStatus = useAppSelector(selectSinglePhotoStatus);
+  const updateStatus = useAppSelector(selectUpdateTitleStatus);
+  const [editing, setEditing] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>("");
 
   useEffect(() => {
     dispatch(fetchPhotoById(Number(photoId)));
