@@ -1,16 +1,21 @@
-import {configureStore} from "@reduxjs/toolkit"
-import usersReducer from "./slices/userSlice"
-import albumsReducer from "./slices/albumSlice"
-import photosReducer from "./slices/photoSlice"
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import usersReducer from "./slices/userSlice";
+import albumsReducer from "./slices/albumSlice";
+import photosReducer from "./slices/photoSlice";
 
-export const store = configureStore({
-    reducer:{
-      users: usersReducer,
-      albums: albumsReducer,
-      photos: photosReducer
-    }
-})
+const rootReducer = combineReducers({
+  users: usersReducer,
+  albums: albumsReducer,
+  photos: photosReducer,
+});
 
+export function setupStore(preloadedState?: Partial<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+}
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore["dispatch"];

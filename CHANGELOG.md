@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/Laryd/pictor/compare/v1.16.5...v1.17.0) (2024-06-10)
+
+
+### Features
+
+* **redux testing:** set Up a Reusable Test Render Function ([22a33e0](https://github.com/Laryd/pictor/commit/22a33e027d9b60c3d1cbda60ad355c2acadee11e))
+
 ### [1.16.5](https://github.com/Laryd/pictor/compare/v1.16.4...v1.16.5) (2024-06-10)
 
 ### [1.16.4](https://github.com/Laryd/pictor/compare/v1.16.3...v1.16.4) (2024-06-05)
