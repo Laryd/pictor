@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/Laryd/pictor/compare/v1.17.0...v1.18.0) (2024-06-12)
+
+
+### Features
+
+* add mock service worker as a dev dependency ([c52a21b](https://github.com/Laryd/pictor/commit/c52a21b49178cd8a649384fcd858a8d5bae1c615))
+* add test-data for testing ([18e8b52](https://github.com/Laryd/pictor/commit/18e8b522e683f811ad21ae557e7aceb67bc136a5))
+* **test:** add userProfile test ([310f93f](https://github.com/Laryd/pictor/commit/310f93f3a5cb82aebeecc3eacde4d02eea4f9bc8))
+
+
+### Bug Fixes
+
+* **jest:** mock server and jest configure fixes ([efeecd9](https://github.com/Laryd/pictor/commit/efeecd99f0f9fb618298907b0ad6d38498fb0043))
+* **metadata:** add correct pitoria url and creator ([a3be09f](https://github.com/Laryd/pictor/commit/a3be09f20c392b62d90d45fdb221cb487ebfac9e))
+
 ## [1.17.0](https://github.com/Laryd/pictor/compare/v1.16.5...v1.17.0) (2024-06-10)
 
 
