@@ -36,10 +36,10 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@eduhubafric",
+      creator: "@pictoria",
     },
     icons,
-    metadataBase: new URL("https://economicsolympiads.eduhubafric.com"),
+    metadataBase: new URL("https://pictoria-blond.vercel.app"),
     ...(noIndex && {
       robots: {
         index: false,
